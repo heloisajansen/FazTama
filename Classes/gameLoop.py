@@ -1,4 +1,5 @@
 import pygame
+from Classes.gamePhases import StageManager, StartMenu, Stage
 from sys import exit
 
 class Game:
@@ -14,6 +15,11 @@ class Game:
 
         self.clock = pygame.time.Clock()
 
+        self.stageManager = StageManager("StartMenu")
+        self.startMenu = StartMenu(self.displayScreen, self.stageManager)
+        self.stage = Stage(self.displayScreen, self.stageManager)
+
+        self.stages = {"StartMenu": self.startMenu, "Stage": self.stage}
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -21,6 +27,9 @@ class Game:
                     if event.key == pygame.K_ESCAPE:
                         pygame.quit()
                         exit()
+
+            self.stages[self.stageManager.getStage()].run()
+
             pygame.display.update()
             self.clock.tick(60)
 
