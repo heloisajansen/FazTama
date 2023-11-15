@@ -20,13 +20,13 @@ class Game:
         self.stage = Stage(self.displayScreen, self.stageManager)
 
         self.stages = {"StartMenu": self.startMenu, "Stage": self.stage}
+
     def run(self):
         while True:
             for event in pygame.event.get():
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        pygame.quit()
-                        exit()
+                if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
+                    pygame.quit()
+                    exit()
 
             self.stages[self.stageManager.getStage()].run()
 

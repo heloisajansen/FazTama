@@ -1,4 +1,5 @@
 import pygame
+from Classes.gameLoop import Game
 
 class Button:
     def __init__(self, text, x, y, width, height):
@@ -8,9 +9,10 @@ class Button:
         self.width = width
         self.height = height
         self.draw()
+        self.font = pygame.font.Font("Resources/font.ttf", 18)
 
     def draw(self):
-        buttonText = font.render(self.text, True, "black")
+        buttonText = self.font.render(self.text, True, "black")
         buttonRect = pygame.rect.Rect((self.x, self.y), (self.width, self.height))
         pygame.draw.rect(displayScreen, "red", buttonRect, 0, 5)
         displayScreen.blit(buttonText, (self.x + 16, self.y + 5))
