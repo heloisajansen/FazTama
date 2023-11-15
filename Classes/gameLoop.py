@@ -21,6 +21,15 @@ class Game:
 
         self.stages = {"StartMenu": self.startMenu, "Stage": self.stage}
 
+        self.titleMusic = pygame.mixer.Sound("Resources/8bitSyndrome.mp3")
+        self.titleMusic.set_volume(0.25)
+
+    def mixMusic(self):
+        if self.stageManager.getStage() == "StartMenu":
+            self.titleMusic.play(loops=-1)
+        elif self.stageManager.getStage() == "Stage":
+            self.titleMusic.stop()
+
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -29,9 +38,7 @@ class Game:
                     exit()
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_x:
                     self.stageManager.setStage("Stage")
-
             self.stages[self.stageManager.getStage()].run()
-
             pygame.display.update()
             self.clock.tick(60)
-
+            self.mixMusic()

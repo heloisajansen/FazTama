@@ -6,12 +6,13 @@ class Stage:
         self.stageManager = stageManager
 
     def run(self):
-        self.displayScreen.fill("blue")
+        self.displayScreen.fill("#B1B1B1")
 
 class StartMenu:
     def __init__(self, displayScreen, stageManager):
         self.displayScreen = displayScreen
         self.stageManager = stageManager
+
         self.logoImage = pygame.image.load("Resources/menuScreen01.png")
         self.logoResized = pygame.transform.scale(self.logoImage,(500, 800))
         self.startImage = pygame.image.load("Resources/menuScreen02.png")
