@@ -27,6 +27,8 @@ class Game:
                 if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
                     pygame.quit()
                     exit()
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_x:
+                    self.stageManager.setStage("Stage")
 
             self.stages[self.stageManager.getStage()].run()
 
