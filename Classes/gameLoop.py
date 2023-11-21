@@ -23,12 +23,15 @@ class Game:
 
         self.titleMusic = pygame.mixer.Sound("Resources/8bitSyndrome.mp3")
         self.titleMusic.set_volume(0.25)
+        self.stageMusic = pygame.mixer.Sound("Resources/justGold.mp3")
+        self.stageMusic.set_volume(0.25)
 
     def mixMusic(self):
         if self.stageManager.getStage() == "StartMenu":
             self.titleMusic.play(loops=-1)
         elif self.stageManager.getStage() == "Stage":
             self.titleMusic.stop()
+            self.stageMusic.play(loops=-1)
 
     def run(self):
         while True:
