@@ -21,14 +21,16 @@ class StartMenu:
 
         self.logoImage = pygame.image.load("Resources/menuScreen01.png")
         self.logoResized = pygame.transform.scale(self.logoImage,(500, 800))
-        self.startImage = pygame.image.load("Resources/menuScreen02.png")
-        self.startResized = pygame.transform.scale(self.startImage,(350, 250))
+
+        self.gameFont = pygame.font.Font("Resources/font.ttf", 45)
+        self.textSurfaceEnter = self.gameFont.render("Pressione X para iniciar", False, "#BE5555")
+        self.textSurfaceQuit = self.gameFont.render("Pressione ESC para sair", False, "#BE5555")
 
     def run(self):
         self.displayScreen.fill("white")
         self.displayScreen.blit(self.logoResized, (450,0))
-        self.displayScreen.blit(self.startResized, (520, 550))
-
+        self.displayScreen.blit(self.textSurfaceEnter, (390,600))
+        self.displayScreen.blit(self.textSurfaceQuit, (400, 650))
 class StageManager:
     def __init__(self, currentStage):
         self.currentStage = currentStage
