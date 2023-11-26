@@ -10,10 +10,14 @@ class Stage:
         self.filling = pygame.Surface((590,600))
         self.filling.fill("#6B6B6B")
 
+        self.background = pygame.image.load("Resources/bg.png")
+        self.backgroundResized = pygame.transform.scale(self.background, (594,800))
     def run(self):
         self.displayScreen.fill("#B1B1B1")
         self.displayScreen.blit(self.borderResized,(300,0))
         self.displayScreen.blit(self.filling, (400,100))
+        self.displayScreen.blit(self.backgroundResized, (400,-100))
+
 class StartMenu:
     def __init__(self, displayScreen, stageManager):
         self.displayScreen = displayScreen
