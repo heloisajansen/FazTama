@@ -1,5 +1,5 @@
 import pygame
-
+from Classes.FazBear import FazBearCharacter
 
 class Stage:
     def __init__(self, displayScreen, stageManager):
@@ -14,11 +14,22 @@ class Stage:
         self.background = pygame.image.load("Resources/bg.png")
         self.backgroundResized = pygame.transform.scale(self.background, (594,800))
 
+        self.FazBearCharacter = FazBearCharacter
+        self.leftFreddy = pygame.image.load("Resources/freddySprite01.png")
+        self.rightFreddy = pygame.image.load("Resources/freddySprite02.png")
+        self.normalFreddy = pygame.image.load("Resources/freddySprite03.png")
+        self.characterPos = pygame.math.Vector2(400, 300)
+        self.rect = self.displayScreen.get_rect()
+
     def run(self):
         self.displayScreen.fill("#B1B1B1")
         self.displayScreen.blit(self.borderResized,(300,0))
         self.displayScreen.blit(self.filling, (400,100))
         self.displayScreen.blit(self.backgroundResized, (400,-100))
+
+        self.mousePos = pygame.mouse.get_pos()
+        self.FazBearCharacter.updateCharacter(self, self.mousePos)
+        self.FazBearCharacter.drawingSprites(self)
 
 class StartMenu:
     def __init__(self, displayScreen, stageManager):
