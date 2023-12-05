@@ -15,9 +15,9 @@ class Stage:
         self.backgroundResized = pygame.transform.scale(self.background, (594,800))
 
         self.FazBearCharacter = FazBearCharacter
-        self.leftFreddy = pygame.image.load("Resources/freddySprite01.png")
-        self.rightFreddy = pygame.image.load("Resources/freddySprite02.png")
-        self.normalFreddy = pygame.image.load("Resources/freddySprite03.png")
+        self.normalFreddy = pygame.image.load("Resources/freddySprite01.png")
+        self.leftFreddy = pygame.image.load("Resources/freddySprite02.png")
+        self.rightFreddy = pygame.image.load("Resources/freddySprite03.png")
         self.characterPos = pygame.math.Vector2(400, 300)
         self.rect = self.displayScreen.get_rect()
 
