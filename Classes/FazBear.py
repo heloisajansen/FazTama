@@ -6,6 +6,7 @@ class FazBearCharacter(pygame.sprite.Sprite):
         self.leftFreddy = pygame.image.load("Resources/freddySprite01.png")
         self.rightFreddy = pygame.image.load("Resources/freddySprite02.png")
         self.normalFreddy = pygame.image.load("Resources/freddySprite03.png")
+
         super().__init__()
         self.characterImage = self.normalFreddy
 
@@ -19,7 +20,7 @@ class FazBearCharacter(pygame.sprite.Sprite):
             self.characterImage = self.normalFreddy
 
     def drawingSprites(self):
-        self.displayScreen.blit(self.characterImage, self.rect.topleft)
+        self.displayScreen.blit(self.characterImage, (450,100))
 
     def runningFreddy(self):
         allSprites = pygame.sprite.Group()
