@@ -2,10 +2,6 @@ import pygame
 class FazBearCharacter(pygame.sprite.Sprite):
     def __init__(self, displayScreen):
         self.displayScreen = displayScreen
-        self.characterPos = pygame.math.Vector2(450,100)
-        self.leftFreddy = pygame.image.load("Resources/freddySprite01.png")
-        self.rightFreddy = pygame.image.load("Resources/freddySprite02.png")
-        self.normalFreddy = pygame.image.load("Resources/freddySprite03.png")
 
         super().__init__()
         self.characterImage = self.normalFreddy
