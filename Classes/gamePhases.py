@@ -1,5 +1,6 @@
 import pygame
 from Classes.FazBear import FazBearCharacter
+from Classes.happinessBar import  HappyBar
 
 class Stage:
     def __init__(self, displayScreen, stageManager):
@@ -20,6 +21,8 @@ class Stage:
         self.rightFreddy = pygame.image.load("Resources/freddySprite03.png")
         self.characterPos = pygame.math.Vector2(400, 300)
 
+        self.HappyBarOnScreen = HappyBar(430, 130, 40, 300, 100)
+
     def run(self):
         self.displayScreen.fill("#B1B1B1")
         self.displayScreen.blit(self.borderResized,(300,0))
@@ -29,6 +32,8 @@ class Stage:
         self.mousePos = pygame.mouse.get_pos()
         self.FazBearCharacter.updateCharacter(self, self.mousePos)
         self.FazBearCharacter.drawingSprites(self)
+
+        self.HappyBarOnScreen.drawBar(self.displayScreen)
 
 class StartMenu:
     def __init__(self, displayScreen, stageManager):
