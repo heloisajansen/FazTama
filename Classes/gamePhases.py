@@ -33,6 +33,7 @@ class Stage:
         self.FazBearCharacter.updateCharacter(self, self.mousePos)
         self.FazBearCharacter.drawingSprites(self)
 
+        self.HappyBarOnScreen.updateBar()
         self.HappyBarOnScreen.drawBar(self.displayScreen)
 
 class StartMenu:
