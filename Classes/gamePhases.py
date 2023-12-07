@@ -1,6 +1,6 @@
 import pygame
 from Classes.FazBear import FazBearCharacter
-from Classes.happinessBar import  HappyBar
+from Classes.happinessBar import HappyBar
 
 class Stage:
     def __init__(self, displayScreen, stageManager):
@@ -23,13 +23,6 @@ class Stage:
 
         self.HappyBarOnScreen = HappyBar(430, 130, 40, 300, 100)
 
-        self.feedingButton = pygame.image.load("Resources/pizzaButton.png")
-        self.cuddlingButton = pygame.image.load("Resources/cuddleButton.png")
-        self.feedingButtonRect = self.feedingButton.get_rect()
-        self.cuddlingButtonRect = self.cuddlingButton.get_rect()
-        self.feedingButtonRect.x, self.feedingButtonRect.y = -70, 100
-        self.cuddlingButtonRect.x, self.cuddlingButtonRect.y = 950, 100
-
     def run(self):
         self.displayScreen.fill("#B1B1B1")
         self.displayScreen.blit(self.borderResized,(300,0))
@@ -43,8 +36,7 @@ class Stage:
         self.HappyBarOnScreen.updateBar()
         self.HappyBarOnScreen.drawBar(self.displayScreen)
 
-        self.displayScreen.blit(self.feedingButton, self.feedingButtonRect)
-        self.displayScreen.blit(self.cuddlingButton, self.cuddlingButtonRect)
+        self.HappyBarOnScreen.drawButtons(self.displayScreen)
 
 
 class StartMenu:
