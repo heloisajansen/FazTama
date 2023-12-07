@@ -16,6 +16,7 @@ class HappyBar:
         self.cuddlingButtonRect = self.cuddlingButton.get_rect()
         self.feedingButtonRect.x, self.feedingButtonRect.y = self.x - 500, self.y
         self.cuddlingButtonRect.x, self.cuddlingButtonRect.y = self.x + 530, self.y
+
     def drawButtons(self, displayScreen):
         self.displayScreen = displayScreen
         self.displayScreen.blit(self.feedingButton, self.feedingButtonRect)
