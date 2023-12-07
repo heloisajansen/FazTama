@@ -5,10 +5,10 @@ class FazBearCharacter(pygame.sprite.Sprite):
         self.characterImage = self.normalFreddy
 
     def updateCharacter(self, mousePos):
-        angle = pygame.math.Vector2(mousePos[0] - self.characterPos.x, mousePos[1] - self.characterPos.y).angle_to((1,0))
-        if -45 <= angle <= 45:
+        eyeAngle = pygame.math.Vector2(mousePos[0] - self.characterPos.x, mousePos[1] - self.characterPos.y).angle_to((1,0))
+        if -45 <= eyeAngle <= 45:
             self.characterImage = self.rightFreddy
-        elif 135 < angle <= 225:
+        elif 135 < eyeAngle <= 225:
             self.characterImage = self.leftFreddy
         else:
             self.characterImage = self.normalFreddy
