@@ -16,6 +16,6 @@ class FazBearCharacter(pygame.sprite.Sprite):
     def drawingSprites(self):
         self.displayScreen.blit(self.characterImage, (450,100))
 
-    def runningFreddy(self):
+    def spriteGroupFreddy(self):
         allSprites = pygame.sprite.Group()
         allSprites.add(self)
