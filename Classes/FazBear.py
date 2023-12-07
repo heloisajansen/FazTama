@@ -14,4 +14,4 @@ class FazBearCharacter(pygame.sprite.Sprite):
             self.characterImage = self.normalFreddy
 
     def drawingSprites(self):
-        self.displayScreen.blit(self.characterImage, (450,100))
+        self.displayScreen.blit(self.characterImage, (450,150))
