@@ -9,7 +9,7 @@ class Game:
         self.screenInfo = pygame.display.Info()
         self.screenWidth = self.screenInfo.current_w
         self.screenHeight = self.screenInfo.current_h
-        self.displayScreen = pygame.display.set_mode((self.screenWidth, self.screenHeight), pygame.FULLSCREEN)
+        self.displayScreen = pygame.display.set_mode((self.screenWidth, self.screenHeight))
 
         pygame.display.set_caption("FazTama: Golden guardian")
 
