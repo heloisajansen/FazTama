@@ -2,8 +2,6 @@ import pygame
 class FazBearCharacter(pygame.sprite.Sprite):
     def __init__(self, displayScreen):
         self.displayScreen = displayScreen
-
-        super().__init__()
         self.characterImage = self.normalFreddy
 
     def updateCharacter(self, mousePos):
