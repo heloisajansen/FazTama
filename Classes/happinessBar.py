@@ -24,7 +24,7 @@ class HappyBar:
         self.currentTime = pygame.time.get_ticks()
         self.mousePos = pygame.mouse.get_pos()
         if self.currentTime > self.startTime + 600:
-            self.hp -= 1
+            self.hp -= 0.5
             self.startTime = self.currentTime
         if pygame.mouse.get_pressed()[0]:
             if (self.feedingButtonRect.collidepoint(self.mousePos) or self.cuddlingButtonRect.collidepoint(self.mousePos)) and self.hp < 100:
