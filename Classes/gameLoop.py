@@ -31,6 +31,9 @@ class Game:
         elif self.stageManager.getStage() == "Stage":
             self.titleMusic.stop()
             self.stageMusic.play(loops=-1)
+        else:
+            self.stageMusic.stop()
+            self.titleMusic.play(loops=-1)
 
     def run(self):
         while True:
@@ -42,6 +45,8 @@ class Game:
                     self.stageManager.setStage("Stage")
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_e and self.stageManager.getStage() == "Stage":
                     self.stageManager.setStage("PauseMenu")
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_q and self.stageManager.getStage() == "PauseMenu":
+                    self.stageManager.setStage("StartMenu")
             self.stages[self.stageManager.getStage()].run()
             pygame.display.update()
             self.clock.tick(60)

@@ -65,10 +65,12 @@ class PauseMenu:
 
         self.gameFont = pygame.font.Font("Resources/font.ttf", 45)
         self.textSurfaceGoBack = self.gameFont.render("Pressione X para voltar", False, "#BE5555")
+        self.textSurfaceGoBackMain = self.gameFont.render("Pressione Q para voltar para o menu incial", False, "#BE5555")
 
     def run(self):
         self.displayScreen.fill("white")
-        self.displayScreen.blit(self.textSurfaceGoBack, (390, 350))
+        self.displayScreen.blit(self.textSurfaceGoBack, (390, 330))
+        self.displayScreen.blit(self.textSurfaceGoBackMain, (150, 450))
 
 
 class StageManager:
