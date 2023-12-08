@@ -1,5 +1,5 @@
 import pygame
-from Classes.gamePhases import StageManager, StartMenu, Stage
+from Classes.gamePhases import StageManager, StartMenu, Stage, PauseMenu
 from sys import exit
 
 class Game:
@@ -16,8 +16,9 @@ class Game:
         self.stageManager = StageManager("StartMenu")
         self.startMenu = StartMenu(self.displayScreen, self.stageManager)
         self.stage = Stage(self.displayScreen, self.stageManager)
+        self.pause = PauseMenu(self.displayScreen, self.stageManager)
 
-        self.stages = {"StartMenu": self.startMenu, "Stage": self.stage}
+        self.stages = {"StartMenu": self.startMenu, "Stage": self.stage, "PauseMenu": self.pause}
 
         self.titleMusic = pygame.mixer.Sound("Resources/8bitSyndrome.mp3")
         self.titleMusic.set_volume(0.25)
@@ -39,6 +40,8 @@ class Game:
                     exit()
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_x:
                     self.stageManager.setStage("Stage")
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_e and self.stageManager.getStage() == "Stage":
+                    self.stageManager.setStage("PauseMenu")
             self.stages[self.stageManager.getStage()].run()
             pygame.display.update()
             self.clock.tick(60)

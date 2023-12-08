@@ -58,6 +58,18 @@ class StartMenu:
         self.displayScreen.blit(self.textSurfaceEnter, (390, 600))
         self.displayScreen.blit(self.textSurfaceQuit, (400, 650))
 
+class PauseMenu:
+    def __init__(self, displayScreen, stageManager):
+        self.displayScreen = displayScreen
+        self.stageManager = stageManager
+
+        self.gameFont = pygame.font.Font("Resources/font.ttf", 45)
+        self.textSurfaceGoBack = self.gameFont.render("Pressione X para voltar", False, "#BE5555")
+
+    def run(self):
+        self.displayScreen.fill("white")
+        self.displayScreen.blit(self.textSurfaceGoBack, (390, 350))
+
 
 class StageManager:
     def __init__(self, currentStage):
