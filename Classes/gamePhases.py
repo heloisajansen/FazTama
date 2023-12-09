@@ -13,6 +13,9 @@ class Stage:
         self.filling = pygame.Surface((590, 600))
         self.filling.fill("#6B6B6B")
 
+        self.blockImage = pygame.image.load("Resources/whiteBlock.png")
+        self.blockImageResized = pygame.transform.scale(self.blockImage, (550, 200))
+
         self.background = pygame.image.load("Resources/bg.png")
         self.backgroundResized = pygame.transform.scale(self.background, (594, 800))
 
@@ -22,7 +25,7 @@ class Stage:
         self.rightFreddy = pygame.image.load("Resources/freddySprite03.png")
         self.characterPos = pygame.math.Vector2(400, 300)
 
-        self.HappyBarOnScreen = HappyBar(430, 130, 40, 300, 100)
+        self.HappyBarOnScreen = HappyBar(430, 180, 40, 300, 100)
 
         self.gameFont = pygame.font.Font("Resources/font.ttf", 38)
         self.textSurfaceGoToMenu = self.gameFont.render("Aperte E para pausar", False, "Black")
@@ -32,6 +35,7 @@ class Stage:
         self.displayScreen.blit(self.borderResized, (300, 0))
         self.displayScreen.blit(self.filling, (400, 100))
         self.displayScreen.blit(self.backgroundResized, (400, -100))
+        self.displayScreen.blit(self.blockImageResized, (440, 25))
 
         self.mousePos = pygame.mouse.get_pos()
         self.FazBearCharacter.updateCharacter(self, self.mousePos)
@@ -99,7 +103,7 @@ class StageCredits:
         self.displayScreen.blit(self.textSurfaceLine01, (280, 100))
         self.displayScreen.blit(self.textSurfaceLine02, (100, 200))
         self.displayScreen.blit(self.textSurfaceLine03, (290, 300))
-        self.displayScreen.blit(self.textSurfaceLine04, (370, 650))
+        self.displayScreen.blit(self.textSurfaceLine04, (375, 650))
 
 
 class StageManager:
