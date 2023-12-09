@@ -44,7 +44,7 @@ class Game:
                     exit()
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_x:
                     self.stageManager.setStage("Stage")
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_e and self.stageManager.getStage() == "Stage":
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_e and (self.stageManager.getStage() == "Stage" or self.stageManager.getStage() == "StageCredits"):
                     self.stageManager.setStage("PauseMenu")
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_q and self.stageManager.getStage() == "PauseMenu":
                     self.stageManager.setStage("StartMenu")
