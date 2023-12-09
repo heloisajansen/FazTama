@@ -24,6 +24,9 @@ class Stage:
 
         self.HappyBarOnScreen = HappyBar(430, 130, 40, 300, 100)
 
+        self.gameFont = pygame.font.Font("Resources/font.ttf", 40)
+        self.textSurfaceGoToMenu = self.gameFont.render("Aperte E para pausar", False, "black")
+
     def run(self):
         self.displayScreen.fill("#B1B1B1")
         self.displayScreen.blit(self.borderResized, (300, 0))
@@ -38,6 +41,8 @@ class Stage:
         self.HappyBarOnScreen.drawBar(self.displayScreen)
 
         self.HappyBarOnScreen.drawButtons(self.displayScreen)
+
+        self.displayScreen.blit(self.textSurfaceGoToMenu, (475, 120))
 
 
 class StartMenu:
