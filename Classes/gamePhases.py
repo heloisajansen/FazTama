@@ -24,11 +24,11 @@ class Stage:
 
         self.HappyBarOnScreen = HappyBar(430, 130, 40, 300, 100)
 
-        self.gameFont = pygame.font.Font("Resources/font.ttf", 40)
-        self.textSurfaceGoToMenu = self.gameFont.render("Aperte E para pausar", False, "black")
+        self.gameFont = pygame.font.Font("Resources/font.ttf", 38)
+        self.textSurfaceGoToMenu = self.gameFont.render("Aperte E para pausar", False, "Black")
 
     def run(self):
-        self.displayScreen.fill("#B1B1B1")
+        self.displayScreen.fill("gray")
         self.displayScreen.blit(self.borderResized, (300, 0))
         self.displayScreen.blit(self.filling, (400, 100))
         self.displayScreen.blit(self.backgroundResized, (400, -100))
@@ -42,7 +42,7 @@ class Stage:
 
         self.HappyBarOnScreen.drawButtons(self.displayScreen)
 
-        self.displayScreen.blit(self.textSurfaceGoToMenu, (475, 120))
+        self.displayScreen.blit(self.textSurfaceGoToMenu, (485, 120))
 
 
 class StartMenu:
@@ -54,8 +54,9 @@ class StartMenu:
         self.logoResized = pygame.transform.scale(self.logoImage, (500, 800))
 
         self.gameFont = pygame.font.Font("Resources/font.ttf", 45)
-        self.textSurfaceEnter = self.gameFont.render("Pressione X para iniciar", False, "#BE5555")
-        self.textSurfaceQuit = self.gameFont.render("Pressione ESC para sair", False, "#BE5555")
+        self.color = "#BE5555"
+        self.textSurfaceEnter = self.gameFont.render("Pressione X para iniciar", False, self.color)
+        self.textSurfaceQuit = self.gameFont.render("Pressione ESC para sair", False, self.color)
 
     def run(self):
         self.displayScreen.fill("white")
@@ -68,14 +69,35 @@ class PauseMenu:
         self.displayScreen = displayScreen
         self.stageManager = stageManager
 
+        self.color = "#BE5555"
         self.gameFont = pygame.font.Font("Resources/font.ttf", 45)
-        self.textSurfaceGoBack = self.gameFont.render("Pressione X para voltar", False, "#BE5555")
-        self.textSurfaceGoBackMain = self.gameFont.render("Pressione Q para voltar para o menu incial", False, "#BE5555")
-
+        self.textSurfaceGoBack = self.gameFont.render("Pressione X para voltar", False, self.color)
+        self.textSurfaceGoBackMain = self.gameFont.render("Pressione Q para voltar para o menu incial", False, self.color)
+        self.textSurfaceGoToCredits = self.gameFont.render("Pressione C para ir para os créditos", False, self.color)
     def run(self):
         self.displayScreen.fill("white")
         self.displayScreen.blit(self.textSurfaceGoBack, (390, 330))
         self.displayScreen.blit(self.textSurfaceGoBackMain, (150, 450))
+        self.displayScreen.blit(self.textSurfaceGoToCredits, (190, 570))
+
+class StageCredits:
+    def __init__(self, displayScreen, stageManager):
+        self.displayScreen = displayScreen
+        self.stageManager = stageManager
+
+        self.gameFont = pygame.font.Font("Resources/font.ttf", 45)
+        self.color = "#BE5555"
+        self.textSurfaceCredits = self.gameFont.render("Créditos", False, self.color)
+        self.textSurfaceLine01 = self.gameFont.render("Obra inspirada na franquia FNAF", False, self.color)
+        self.textSurfaceLine02 = self.gameFont.render("Música feita por The Living Tombstone e Z3r0", False, self.color)
+        self.textSurfaceLine03 = self.gameFont.render("Arte criada por Heloísa Jansen", False, self.color)
+
+    def run(self):
+        self.displayScreen.fill("gray")
+        self.displayScreen.blit(self.textSurfaceCredits, (570, 0))
+        self.displayScreen.blit(self.textSurfaceLine01, (280, 100))
+        self.displayScreen.blit(self.textSurfaceLine02, (100, 200))
+        self.displayScreen.blit(self.textSurfaceLine03, (290, 300))
 
 
 class StageManager:
