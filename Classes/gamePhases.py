@@ -96,6 +96,7 @@ class StageCredits:
         self.textSurfaceLine02 = self.gameFont.render("Música feita por The Living Tombstone e Z3r0", False, self.color)
         self.textSurfaceLine03 = self.gameFont.render("Arte criada por Heloísa Jansen", False, self.color)
         self.textSurfaceLine04 = self.gameFont.render("Pressione E para voltar", False, self.color)
+        self.textSurfaceLine05 = self.gameFont.render("'Totus Tuus Maria'", False, self.color)
 
     def run(self):
         self.displayScreen.fill("gray")
@@ -103,7 +104,8 @@ class StageCredits:
         self.displayScreen.blit(self.textSurfaceLine01, (280, 100))
         self.displayScreen.blit(self.textSurfaceLine02, (100, 200))
         self.displayScreen.blit(self.textSurfaceLine03, (290, 300))
-        self.displayScreen.blit(self.textSurfaceLine04, (375, 650))
+        self.displayScreen.blit(self.textSurfaceLine04, (390, 650))
+        self.displayScreen.blit(self.textSurfaceLine05, (460, 400))
 
 
 class StageManager:
